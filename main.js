@@ -22,86 +22,62 @@ let producto9 = new Productos ('Musculosa GYM', 2300, 'indumentaria');
 
 const productos = [producto1, producto2, producto3, producto4, producto5, producto6, producto7, producto8, producto9];
 
+// variables necesarias para las funciones
+let mensaje = 'Productos:\n';
+let contador;
+let resultado;
+let productoAComprar;
+let cantidadAComprar;
+
 // funcion que devuelve el resultado
 function totalAPagar(unidadesSolicitadas, precio) {
     let resultado = unidadesSolicitadas * precio;
     return 'El total a pagar es de $' + resultado;
 };
 
+function iterarProductos (categoria, filtrado) {
+    mensaje = categoria + '\n';
+    contador = 1;
+    resultado = productos.filter( (producto) => producto.categoria.includes(filtrado));
+
+    for (const producto of resultado) {
+        mensaje += contador++ + '. ' + producto.nombre + ' $' + producto.precio + '\n';
+    }
+}
+
+function mostrarTotal (productoA, productoB, productoC) {
+    productoAComprar = parseInt(prompt(mensaje));
+    cantidadAComprar = parseInt(prompt('¿Cuantos productos desea comprar?'));
+
+    if (productoAComprar == 1) {
+        alert(totalAPagar(productoA.precio, cantidadAComprar));
+    } else if (productoAComprar == 2) {
+        alert(totalAPagar(productoB.precio, cantidadAComprar));
+    } else if (productoAComprar == 3) {
+        alert(totalAPagar(productoC.precio, cantidadAComprar))
+    }
+}
+
 function mostrarProductos(categoria) {
-    let mensaje = 'Productos:\n';
-    let contador;
-    let resultado;
-    let productoAComprar;
-    let cantidadAComprar;
-    
     switch (categoria) {
         case 1:
-            mensaje = 'Ingrese el nº del producto a comprar:\n';
-            contador = 1;
-            resultado = productos.filter( (producto) => producto.categoria.includes('suplementos'));
-
-            for (const producto of resultado) {
-                mensaje += contador++ + '. ' + producto.nombre + ' $' + producto.precio + '\n';
-            }
-
-            productoAComprar = parseInt(prompt(mensaje));
-            cantidadAComprar = parseInt(prompt('¿Cuantos productos desea comprar?'));
-            
-            if (productoAComprar == 1) {
-                alert(totalAPagar(producto1.precio, cantidadAComprar));
-            } else if (productoAComprar == 2) {
-                alert(totalAPagar(producto2.precio, cantidadAComprar));
-            } else if (productoAComprar == 3) {
-                alert(totalAPagar(producto3.precio, cantidadAComprar))
-            }
+            iterarProductos('Suplementos', 'suplementos')
+            mostrarTotal(producto1, producto2, producto3)
             break;
         
         case 2:
-            mensaje = 'Equipo de gimnasio:\n';
-            contador = 1;
-            resultado = productos.filter( (producto) => producto.categoria.includes('equipo-gimnasio'));
-            
-            for (const producto of resultado) {
-                mensaje += contador++ + '. ' + producto.nombre + ' $' + producto.precio + '\n';
-            }
-
-            productoAComprar = parseInt(prompt(mensaje));
-            cantidadAComprar = parseInt(prompt('¿Cuantos productos desea comprar?'));
-            
-            if (productoAComprar == 1) {
-                alert(totalAPagar(producto4.precio, cantidadAComprar));
-            } else if (productoAComprar == 2) {
-                alert(totalAPagar(producto5.precio, cantidadAComprar));
-            } else if (productoAComprar == 3) {
-                alert(totalAPagar(producto6.precio, cantidadAComprar))
-            }
+            iterarProductos('Equipo de gimnasio', 'equipo-gimnasio');
+            mostrarTotal(producto4, producto5, producto6)
             break;
 
         case 3:
-            mensaje = 'Indumentaria:\n';
-            contador = 1;
-            resultado = productos.filter( (producto) => producto.categoria.includes('indumentaria'));
-            
-            for (const producto of resultado) {
-                mensaje += contador++ + '. ' + producto.nombre + ' $' + producto.precio + '\n';
-            }
-            
-            productoAComprar = parseInt(prompt(mensaje));
-            cantidadAComprar = parseInt(prompt('¿Cuantos productos desea comprar?'));
-            
-            if (productoAComprar == 1) {
-                alert(totalAPagar(producto7.precio, cantidadAComprar));
-            } else if (productoAComprar == 2) {
-                alert(totalAPagar(producto8.precio, cantidadAComprar));
-            } else if (productoAComprar == 3) {
-                alert(totalAPagar(producto9.precio, cantidadAComprar))
-            }
+            iterarProductos('Ropa deportiva', 'indumentaria');
+            mostrarTotal(producto7, producto8, producto9)
             break;
 
         default:
             alert('Error!');
-            break;
+        break;
     }
 }
 
