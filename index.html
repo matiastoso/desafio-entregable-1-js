@@ -5,14 +5,63 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tienda Online - Fitness</title>
-    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 <body>
-    <h1>Tienda online de suplementos, equipo de gimnasio y ropa deportiva</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas velit, impedit suscipit iusto quidem voluptatum ullam nam exercitationem? Iste totam nostrum tempore. Quam sint rerum quidem illo voluptatum, laudantium nihil?</p>
-    <button id="btnComprar">Realizar una compra</button>
+    <h2 class="container-fluid bg-primary py-3 text-center">Tienda online de suplementos, equipo de gimnasio y ropa deportiva</h2>
 
-    <ol id="contenedor"></ol>
+    <main class="container-fluid">
+        <section class="container">
+            <h1>MatFitness</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas velit, impedit suscipit iusto quidem voluptatum ullam nam exercitationem? Iste totam nostrum tempore. Quam sint rerum quidem illo voluptatum, laudantium nihil?</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas velit, impedit suscipit iusto quidem voluptatum ullam nam exercitationem? Iste totam nostrum tempore. Quam sint rerum quidem illo voluptatum, laudantium nihil?</p>
+        </section>
+
+        <section class="container">
+            <div class="row">
+                <div class="col-12 col-md-4">
+                    <h3 class="text-center">Suplementos</h3>
+                    <img src="https://www.fitnesswork.es/blog/wp-content/uploads/2017/11/Suplementos-para-principiantes-volumen.jpeg" alt="Suplementos" class="img-fluid">
+                    <p class="text-center">Lorem ipsum dolor sit, amet consectetur adipisicing elit. In nisi tenetur dolorum incidunt soluta!</p>
+
+                    <button class="btn btn-sm bg-success" id="btnComprarSuplementos">Ver producos</button>
+                </div>
+
+                <div class="col-12 col-md-4">
+                    <h3 class="text-center">Equipo de gimnasio</h3>
+                    <img src="https://img.freepik.com/foto-gratis/primer-plano-pesas-dispuestas-fila-gimnasio_23-2147827465.jpg" alt="Pesas" class="img-fluid">
+                    <p class="text-center">Lorem ipsum dolor sit, amet consectetur adipisicing elit. In nisi tenetur dolorum incidunt soluta!</p>
+
+                    <button class="btn btn-sm bg-success" id="btnComprarEquipo">Ver producos</button>
+                </div>
+
+                <div class="col-12 col-md-4">
+                    <h3 class="text-center">Ropa deportiva</h3>
+                    <img src="https://i.pinimg.com/originals/78/fb/c1/78fbc11cb8d07cd5f6348e1cdc2a304d.jpg" alt="Ropa deportiva" class="img-fluid">
+                    <p class="text-center">Lorem ipsum dolor sit, amet consectetur adipisicing elit. In nisi tenetur dolorum incidunt soluta!</p>
+
+                    <button class="btn btn-sm bg-success" id="btnComprarRopa">Ver producos</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="contenedor" class="container mt-4">
+            <h4 class="text-danger">Espacio de compras</h4>
+
+            <div class="row">
+                <div class="col-6">
+                    <ol id="lista">
+                    </ol>
+
+                    <select class="bg-danger" name="" id="">
+                        <option value="1">Proteina WHEY</option>
+                        <option value="2">Creatina</option>
+                        <option value="3">Pre-entreno</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <script src="productos.js"></script>
     <script src="main.js"></script>
