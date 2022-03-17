@@ -4,6 +4,10 @@ function Productos (nombre, precio, categoria) {
     this.categoria = categoria;
 }
 
+const subirlocalStorage = (clave, valor) => {localStorage.setItem(clave, valor)};
+let contador = 0;
+
+
 let producto1 = new Productos ('Proteina WHEY', 1250, 'suplementos');
 let producto2 = new Productos ('Creatina', 1550, 'suplementos');
 let producto3 = new Productos ('Pre-entreno', 1700, 'suplementos');
@@ -16,4 +20,8 @@ let producto7 = new Productos ('Zapatillas running', 7800, 'indumentaria');
 let producto8 = new Productos ('Conjunto deportivo', 9000, 'indumentaria');
 let producto9 = new Productos ('Musculosa GYM', 2300, 'indumentaria');
 
-const productos = [producto1, producto2, producto3, producto4, producto5, producto6, producto7, producto8, producto9];
+const listadoProductos = [producto1, producto2, producto3, producto4, producto5, producto6, producto7, producto8, producto9];
+for (const producto of listadoProductos) {
+    contador++;
+    subirlocalStorage(contador, JSON.stringify(producto));
+}

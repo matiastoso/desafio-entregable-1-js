@@ -1,12 +1,21 @@
 let mensaje = '¿Qué producto esta buscando? (Elija el número correspondiente al producto).';
-let contador;
 let resultado;
 let productoAComprar;
 let cantidadAComprar;
 
-let btnComprarSuplementos = document.getElementById('btnComprarSuplementos');
-let btnComprarEquipo = document.getElementById('btnComprarEquipo');
-let btnComprarRopa = document.getElementById('btnComprarRopa');
+const productos = [];
+
+// trayendo productos del localStorage
+for (let i = 1; i <= localStorage.length; i++) {
+    let producto = localStorage.getItem(i);
+    productos.push(JSON.parse(producto))
+}
+
+let btnMostrarSuplementos = document.getElementById('btnComprarSuplementos');
+let btnMostrarEquipo = document.getElementById('btnComprarEquipo');
+let btnMostrarRopa = document.getElementById('btnComprarRopa');
+let selectDeCompra = document.getElementById('opcionesDeCompra');
+let btnRealizarCompra = document.getElementById('realizarCompra');
 
 function totalAPagar(unidadesSolicitadas, precio) {
     let resultado = unidadesSolicitadas * precio;
@@ -25,7 +34,7 @@ function iterarProductos (categoria, filtrado) {
 
 function mostrarTotal (productoA, productoB, productoC) {
     productoAComprar = parseInt(prompt(mensaje));
-    cantidadAComprar = parseInt(prompt('¿Cuantos productos desea comprar?'));
+    cantidadAComprar = document.getElementById('cantidadAComprar').value;
 
     if (productoAComprar == 1) {
         alert(totalAPagar(productoA.precio, cantidadAComprar));
@@ -38,23 +47,27 @@ function mostrarTotal (productoA, productoB, productoC) {
 
 function mostrarSuplementos () {
     iterarProductos('Suplementos', 'suplementos');
-    // setTimeout(mostrarTotal, 1000, producto1, producto2, producto3);
 }
 
 function mostrarEquipo () {
     iterarProductos('Equipo de gimnasio', 'equipo-gimnasio');
-    // setTimeout(mostrarTotal, 1000, producto4, producto5, producto6);
 }
 
 function mostrarRopa () {
     iterarProductos('Ropa deportiva', 'indumentaria');
-    // setTimeout(mostrarTotal, 1000, producto7, producto8, producto9);
 }
+
 let alertas = ['Hola! Bienvenido a la tienda Matfit', 'Somos una tienda en línea de suplementos, equipo de gimnasio y ropa deportiva', '¡Gracias por elegirnos!'];
 for (alerta of alertas) {
     alert(alerta);
 }
 
-btnComprarSuplementos.addEventListener('click', mostrarSuplementos);
-btnComprarEquipo.addEventListener('click', mostrarEquipo);
-btnComprarRopa.addEventListener('click', mostrarRopa);
+btnMostrarSuplementos.addEventListener('click', mostrarSuplementos);
+btnMostrarEquipo.addEventListener('click', mostrarEquipo);
+btnMostrarRopa.addEventListener('click', mostrarRopa);
+
+// function realizarCompra () {
+//     mostrarTotal(productos[0], productos[1], productos[2]);
+// }
+
+// btnRealizarCompra.addEventListener('click', realizarCompra)
