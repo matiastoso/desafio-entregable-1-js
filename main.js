@@ -58,16 +58,12 @@ function mostrarRopa () {
 }
 
 let alertas = ['Hola! Bienvenido a la tienda Matfit', 'Somos una tienda en línea de suplementos, equipo de gimnasio y ropa deportiva', '¡Gracias por elegirnos!'];
-for (alerta of alertas) {
-    alert(alerta);
-}
+Swal.fire(
+    alertas[0],
+    alertas[1],
+    'success'
+)
 
 btnMostrarSuplementos.addEventListener('click', mostrarSuplementos);
 btnMostrarEquipo.addEventListener('click', mostrarEquipo);
 btnMostrarRopa.addEventListener('click', mostrarRopa);
-
-// function realizarCompra () {
-//     mostrarTotal(productos[0], productos[1], productos[2]);
-// }
-
-// btnRealizarCompra.addEventListener('click', realizarCompra)
