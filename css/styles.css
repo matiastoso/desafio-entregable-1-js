@@ -3,4 +3,6 @@
 .header__nav ul li { cursor: pointer; list-style-type: none; }
 
 .banner { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: start; -ms-flex-align: start; align-items: flex-start; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-flow: column; flex-flow: column; height: 450px; padding-left: 10%; }
+
+.main__ofertas { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; height: 340px; }
 /*# sourceMappingURL=styles.css.map */

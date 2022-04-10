@@ -22,3 +22,13 @@
     height: 450px;
     padding-left: 10%;
 }
+
+.main {
+    &__ofertas {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        height: 340px;
+    }
+}
