@@ -1,0 +1,24 @@
+
+
+.header {
+    &__buscador {
+        width: 80%;
+    }
+
+    &__nav {
+        ul li {
+            cursor: pointer;
+            list-style-type: none;
+        }
+    }
+}
+
+.banner {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-flow: column;
+
+    height: 450px;
+    padding-left: 10%;
+}
