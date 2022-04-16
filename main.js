@@ -1,21 +1,69 @@
-let mensaje = '¿Qué producto esta buscando? (Elija el número correspondiente al producto).';
-let resultado;
-let productoAComprar;
-let cantidadAComprar;
+let contenedorProductos = document.getElementById('contenedorProductos');
+const tbodyCarrito = document.querySelector('#contenedorCarrito tbody');
+const tfootCarrito = document.querySelector('#contenedorCarrito tfoot');
 
-const productos = [];
-
-// trayendo productos del localStorage
-for (let i = 1; i <= localStorage.length; i++) {
-    let producto = localStorage.getItem(i);
-    productos.push(JSON.parse(producto))
+function vaciarContenedorProductos () {
+    contenedorProductos.innerHTML = ``;
 }
 
-let btnMostrarSuplementos = document.getElementById('btnComprarSuplementos');
-let btnMostrarEquipo = document.getElementById('btnComprarEquipo');
-let btnMostrarRopa = document.getElementById('btnComprarRopa');
-let selectDeCompra = document.getElementById('opcionesDeCompra');
-let btnRealizarCompra = document.getElementById('realizarCompra');
+function mostrarProductos (productos) {
+    productos.forEach( (producto) => {
+        let precioRebajado = '';
+        if (producto.oferta) {
+            precioRebajado = producto.cuarentaOff();
+
+            let productoNuevo = document.createElement('article');
+            productoNuevo.className = 'col-12 col-md-4 text-center my-4';
+            productoNuevo.innerHTML = `
+            <img class="producto__img" src="${producto.url}" alt="${producto.nombre}">
+            <h3 class="d-inline">$${precioRebajado}</h3> <sup class="text-muted fs-6 text-decoration-line-through">$${producto.precio}</sup>
+            <p>${producto.nombre}</p>
+            <button class="btn btn-success btn-sm">Añadir a carrito</button>`;
+        
+        contenedorProductos.append(productoNuevo)
+
+        } else {
+            let productoNuevo = document.createElement('article');
+            productoNuevo.className = 'col-12 col-md-4 text-center my-4';
+            productoNuevo.innerHTML = `
+            <img class="producto__img" src="${producto.url}" alt="${producto.nombre}">
+            <h3>$${producto.precio}</h3>
+            <p>${producto.nombre}</p>
+            <button class="btn btn-success btn-sm">Añadir a carrito</button>`;
+            
+            contenedorProductos.append(productoNuevo)
+        }
+    })
+}
+
+mostrarProductos(listadoProductos);
+
+contenedorProductos.addEventListener('click', (e) => {
+    if (e.target.classList.contains('btn')) {
+        const nuevaCompra = document.createElement('tr');
+        let imagen = e.target.parentElement.children[0].src;
+        let precio = e.target.parentElement.children[1];
+        let total = precio.innerHTML;
+        total += precio;
+        
+        nuevaCompra.innerHTML = `<tr>
+                                <th scope="row">1</th>
+                                <td>
+                                    <img style="width: 35px;" src="${imagen}" alt="Producto">
+                                    </td>
+                                    <td>${precio.innerHTML}</td>
+                                </tr>`;
+        tbodyCarrito.append(nuevaCompra);
+        console.log(total)
+
+        tfootCarrito.innerHTML = `<tr>
+                                    <td class="text-end" colspan="2">
+                                        Total:
+                                    </td>
+                                    <td>${precio}</td>
+                                </tr>`;
+    }
+})
 
 function totalAPagar(unidadesSolicitadas, precio) {
     let resultado = unidadesSolicitadas * precio;
@@ -44,26 +92,3 @@ function mostrarTotal (productoA, productoB, productoC) {
         alert(totalAPagar(productoC.precio, cantidadAComprar));
     }
 }
-
-function mostrarSuplementos () {
-    iterarProductos('Suplementos', 'suplementos');
-}
-
-function mostrarEquipo () {
-    iterarProductos('Equipo de gimnasio', 'equipo-gimnasio');
-}
-
-function mostrarRopa () {
-    iterarProductos('Ropa deportiva', 'indumentaria');
-}
-
-let alertas = ['Hola! Bienvenido a la tienda Matfit', 'Somos una tienda en línea de suplementos, equipo de gimnasio y ropa deportiva', '¡Gracias por elegirnos!'];
-Swal.fire(
-    alertas[0],
-    alertas[1],
-    'success'
-)
-
-btnMostrarSuplementos.addEventListener('click', mostrarSuplementos);
-btnMostrarEquipo.addEventListener('click', mostrarEquipo);
-btnMostrarRopa.addEventListener('click', mostrarRopa);
