@@ -15,6 +15,13 @@ btnSuplementos.addEventListener('click', () => {
 
     vaciarContenedorProductos();
     mostrarProductos(productosFiltrados);
+     
+    Swal.fire({
+        icon: 'success',
+        title: 'Filtrado con éxito!',
+        showConfirmButton: false,
+        timer: 1000
+    })
 })
 
 btnEquipoGimnasio.addEventListener('click', () => {
@@ -24,6 +31,13 @@ btnEquipoGimnasio.addEventListener('click', () => {
 
     vaciarContenedorProductos();
     mostrarProductos(productosFiltrados);
+     
+    Swal.fire({
+        icon: 'success',
+        title: 'Filtrado con éxito!',
+        showConfirmButton: false,
+        timer: 1000
+    })
 })
 
 btnRopa.addEventListener('click', () => {
@@ -33,6 +47,13 @@ btnRopa.addEventListener('click', () => {
 
     vaciarContenedorProductos();
     mostrarProductos(productosFiltrados);
+     
+    Swal.fire({
+        icon: 'success',
+        title: 'Filtrado con éxito!',
+        showConfirmButton: false,
+        timer: 1000
+    })
 });
 
 let btnProductosRelampago = document.getElementById('btnProductosRelampago');
@@ -46,4 +67,11 @@ btnProductosRelampago.addEventListener('click', () => {
 
     vaciarContenedorProductos();
     mostrarProductos(productosFiltrados);
+     
+    Swal.fire({
+        icon: 'success',
+        title: 'Filtrado con éxito!',
+        showConfirmButton: false,
+        timer: 1000
+    })
 });

@@ -7,17 +7,19 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
     <title>FitMT - Tienda Online</title>
 </head>
 <body>
-    <header class="header container-fluid bg-primary py-4">
-        <div class="row text-center">
+    <header class="header container-fluid py-4">
+        <div class="row text-center align-items-center">
             <div class="col-4">
-                <span class="header__logo">FitMT</span>
+                <a class="text-decoration-none text-white" href="index.html"><span class="header__logo fs-2">FitMT</span></a>
             </div>
 
-            <div class="col-4">
-                <input class="header__buscador border rounded-pill py-1" type="search" name="buscador" id="buscador">
+            <div class="col-4 header__buscador">
+                <input type="text" class="form-control" placeholder="Buscar">
+                <i class="fas fa-search fs-5"></i>
             </div>
             
             <div class="col-4 position-relative">
@@ -40,36 +42,25 @@
         </div>
     </header>
 
-    <nav class="header__nav  container-fluid bg-secondary">
-        <ul class="d-flex justify-content-evenly align-items-center py-3 mb-0">
+    <nav class="header__nav container-fluid">
+        <ul class="d-flex justify-content-evenly align-items-center flex-wrap py-3 mb-0">
             <li id="btnSuplementos">Suplementos</li>
             <li id="btnEquipoGimnasio">Equipo de gimnasio</li>
             <li id="btnRopa">Ropa deportiva</li>
         </ul>
     </nav>
 
-    <div class="banner bg-success">
-        <h1>Ofertas relampago <br> 40% + Envio gratis</h1>
-        <button id="btnProductosRelampago" class="banner__btn btn btn-primary mt-1">Ver productos</button>
+    <div id="btnProductosRelampago" class="banner">
     </div>
 
-    <main class="main container py-5">
-        <div class="row justify-content-between">
-            <div class="col-12 col-md-6 bg-success border main__ofertas">
-                <h2>3 cuotas sin interés</h2>
-            </div>
-
-            <div class="col-12 col-md-6 bg-success border main__ofertas">
-                <h2>Lo mejor en ropa deportiva</h2>
-            </div>
-        </div>
-
-        <section id="contenedorProductos" class="row mt-5 main__productos">
+    <main class="main container py-2">
+        <h1 class="text-center mt-5">Productos</h1>
+        <section id="contenedorProductos" class="row main__productos">
         </section>
     </main>
 
-    <footer class="bg-secondary text-center py-2">
-        Derechos reservador @ matiastoso
+    <footer class="footer text-center py-2">
+        Derechos reservados @ matiastoso
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.7/dist/sweetalert2.all.min.js"></script>

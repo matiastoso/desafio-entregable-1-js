@@ -15,10 +15,7 @@ class Producto {
         return this.precio / 2
     }
 }
-
-const subirlocalStorage = (clave, valor) => {localStorage.setItem(clave, valor)};
 let contador = 0;
-
 
 let producto1 = new Producto ('Whey Protein ENA Sport 930g', 3800, 'images/producto1.jpg', 'suplemento', false),
     producto2 = new Producto ('Whey Protein HardCore 1kg', 950, 'images/producto2.png', 'suplemento', true),
@@ -30,11 +27,7 @@ let producto1 = new Producto ('Whey Protein ENA Sport 930g', 3800, 'images/produ
     producto8 = new Producto ('Bicicleta De Spinning Jdm Sports Es 7801', 27000, 'images/producto8.jpg', 'equipo-gimnasio', true),
     producto9 = new Producto ('Zapatillas Hombre Deportiva Basto', 3750, 'images/producto9.jpg', 'ropa-deportiva', false),
     producto10 = new Producto ('Jaguar 4325 Hombre Adultos', 6300, 'images/producto10.jpg', 'ropa-deportiva', true),
-    producto11 = new Producto('Conjunto Puma Individualrise Hombre', 11400, 'images/producto11.jpg', 'ropa-deportiva', false),
-    producto12 = new Producto('Buzo Con Capucha Essentials Mujer', 11999, 'images/producto12.jpg', 'ropa-deportiva', false);
+    producto11 = new Producto ('Conjunto Puma Individualrise Hombre', 11400, 'images/producto11.jpg', 'ropa-deportiva', false),
+    producto12 = new Producto ('Buzo Con Capucha Essentials Mujer', 11999, 'images/producto12.jpg', 'ropa-deportiva', false);
 
 const listadoProductos = [producto1, producto2, producto3, producto4, producto5, producto6, producto7, producto8, producto9, producto10, producto11, producto12];
-for (const producto of listadoProductos) {
-    contador++;
-    subirlocalStorage(contador, JSON.stringify(producto));
-}
